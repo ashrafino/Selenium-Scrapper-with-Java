@@ -29,11 +29,9 @@ This Flask application allows users to search for products on Jumia and scrape i
 Clone the repository:
 
    ```bash
-  git clone https://github.com/yourusername/jumia-product-scraper.git
-  ```
+   git clone https://github.com/yourusername/jumia-product-scraper.git
 
-```bash 
-bashcd jumia-product-scraper
+   bashcd jumia-product-scraper
 ```
 
 Install the required packages:
