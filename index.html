@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jumia Product Search</title>
+    <style>
+        #header {
+            text-align: center;
+        }
+
+        #search-form {
+            text-align: center;
+        }
+
+        #customers {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #customers tr:hover {
+            background-color: #ddd;
+        }
+
+        #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+
+        .search-form {
+            margin: auto;
+            max-width: 300px;
+        }
+
+        .search-form input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        .search-form button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #0b7dda;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        .search-form button:hover {
+            background: #04AA6D;
+        }
+
+        .search-form::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Jumia Product Search</h1>
+    </div>
+    <div id="search-form" class="search-form">
+        <form class="example" method="POST" action="/">
+            <input type="text" placeholder="Enter a product" name="text">
+            <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+    {% if produit %}
+        <h2>Search results for "{{ produit }}":</h2>
+        <table id="customers">
+            <tr>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Image</th>
+            </tr>
+            {% for i in range(product_names|length) %}
+                <tr>
+                    <td>{{ product_names[i] }}</td>
+                    <td>{{ product_prices[i] }}</td>
+                    <td><img src="{{ product_images[i] }}" alt="Product Image"></td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>
